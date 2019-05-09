@@ -100,11 +100,13 @@ export default class Piece {
     *[Symbol.iterator]() {
         for (let y = 0; y < this.blocks.length; y++) {
             for (let x = 0; x < this.blocks[y].length; x++) {
-                yield this.blocks[y][x] === 1 ? {
-                    x: this.x + x,
-                    y: this.y + y,
-                    color: this.color
-                } : null;
+                if (this.blocks[y][x] === 1) {
+                    yield {
+                        x: this.x + x,
+                        y: this.y + y,
+                        color: this.color
+                    };
+                }
             }
         }
     }

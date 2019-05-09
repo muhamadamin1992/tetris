@@ -12,9 +12,7 @@ export default class Grid extends Array {
 
     hasCollision(piece) {
         for (let block of piece) {
-            if (
-                block && 
-                (this._isOutOfBounds(block.x, block.y) || this._isOccupied(block.x, block.y))
+            if (this._isOutOfBounds(block.x, block.y) || this._isOccupied(block.x, block.y)
             ) {
                 return true;
             }
@@ -25,9 +23,7 @@ export default class Grid extends Array {
 
     lockPiece(piece) {
         for (let block of piece) {
-            if (block) {
-                this[block.y][block.x] = block;
-            }
+            this[block.y][block.x] = block;
         }
     }
 
